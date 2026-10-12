@@ -108,6 +108,8 @@
 .password-help{margin-top:8px;padding-top:6px;font-size:12px}
 .password-help summary{display:inline-block;cursor:pointer;text-decoration:underline;text-underline-offset:4px;color:var(--blue);font-weight:700}
 .password-help summary::-webkit-details-marker{display:none}
+.records-top{display:block;text-align:left}
+.records-top h2{width:100%;text-align:left}
 .records-secret-space{position:relative;display:block;background:var(--ink);margin-top:20px;line-height:2}
 .records-secret{display:inline-block;color:var(--ink);font-family:var(--serif);font-size:18px;font-weight:400;letter-spacing:.04em;line-height:2;padding:0;user-select:text;-webkit-user-select:text;cursor:text}
 .records-secret::selection{color:#fff;background:#397eab}
