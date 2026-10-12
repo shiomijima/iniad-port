@@ -110,6 +110,11 @@
 .password-help summary::-webkit-details-marker{display:none}
 .records-top{display:block;text-align:left}
 .records-top h2{width:100%;text-align:left}
+.records-top .eyebrow{display:block;margin:0 0 28px;line-height:1.6}
+@media(min-width:681px){
+  .records-top .eyebrow{font-size:15px;letter-spacing:.28em;margin-bottom:30px}
+  .records-top h2{font-size:clamp(36px,3.5vw,52px);line-height:1.65;margin:0}
+}
 .records-secret-space{position:relative;display:block;background:var(--ink);margin-top:20px;line-height:2}
 .records-secret{display:inline-block;color:var(--ink);font-family:var(--serif);font-size:18px;font-weight:400;letter-spacing:.04em;line-height:2;padding:0;user-select:text;-webkit-user-select:text;cursor:text}
 .records-secret::selection{color:#fff;background:#397eab}
