@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>チケットの使い方｜INIAD PORT</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script>
+    if (sessionStorage.getItem('iniad-ticket-unlocked') !== 'true') {
+      window.location.replace('./index.html#records');
+    }
+  </script>
+</head>
+<body class="guide-page">
+  <main class="ticket-guide-main">
+    <a class="guide-back" href="./index.html#records">← INIAD PORTへ戻る</a>
+    <section class="ticket-guide-sheet" aria-labelledby="guide-title">
+      <p class="eyebrow">TICKET GUIDE · UNLOCKED</p>
+      <span class="guide-step">航海記録 01</span>
+      <h1 id="guide-title">チケットの使い方</h1>
+      <p class="guide-lead">パスワードを確認しました。<br>旅の記録を完成させる準備が整いました。</p>
+      <div class="guide-placeholder">
+        <strong>詳しい使い方は準備中です</strong>
+        <p>チケットをアルバムのどこに、どの向きで置くかは、謎とチケットの最終デザインに合わせてここへ掲載します。</p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
