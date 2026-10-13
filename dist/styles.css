@@ -266,6 +266,7 @@ th,td{vertical-align:middle}
   filter:drop-shadow(18px 24px 0 #dfeef5);
 }
 .ticket-stub:before,.ticket-stub:after{display:none}
+tbody tr[hidden]{display:none!important}
 
 @keyframes divider-wave{0%,100%{transform:translateX(calc(-50% - 5px))}50%{transform:translateX(calc(-50% + 5px))}}
 .scroll-reveal{opacity:0;transform:translateY(12px);transition:opacity .7s ease-out,transform .7s ease-out}

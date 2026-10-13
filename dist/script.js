@@ -7,9 +7,16 @@ menuButton.addEventListener('click', () => {
   mobileMenu.hidden = open;
 });
 
-mobileMenu.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
+mobileMenu.querySelectorAll('a').forEach((link) => link.addEventListener('click', (event) => {
+  event.preventDefault();
   menuButton.setAttribute('aria-expanded', 'false');
   mobileMenu.hidden = true;
+  const target = document.querySelector(link.getAttribute('href'));
+  if (!target) return;
+  target.querySelectorAll('.scroll-reveal').forEach((element) => element.classList.add('is-visible'));
+  window.history.pushState(null, '', link.getAttribute('href'));
+  target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  updateNavigation();
 }));
 
 const routeButtons = document.querySelectorAll('.route-tabs button');
@@ -56,6 +63,35 @@ passwordInput?.addEventListener('input', () => {
   passwordInput.removeAttribute('aria-invalid');
   passwordError.textContent = '';
 });
+
+window.addEventListener('pageshow', () => {
+  if (!passwordForm) return;
+  delete passwordForm.dataset.unlocking;
+  passwordForm.querySelector('button').disabled = false;
+  passwordForm.closest('.locked-card').classList.remove('is-unlocked');
+  passwordError.textContent = '';
+});
+
+// Escape also closes the navigation without leaving the page.
+document.addEventListener('keydown', (event) => {
+  if (event.key !== 'Escape' || mobileMenu.hidden) return;
+  mobileMenu.hidden = true;
+  menuButton.setAttribute('aria-expanded', 'false');
+  menuButton.focus();
+});
+
+function updateNavigation() {
+  const hash = window.location.hash || '#top';
+  document.querySelectorAll('.desktop-nav a').forEach((link) => {
+    const active = link.getAttribute('href') === hash;
+    link.classList.toggle('active', active);
+    if (active) link.setAttribute('aria-current', 'location');
+    else link.removeAttribute('aria-current');
+  });
+}
+window.addEventListener('hashchange', updateNavigation);
+document.querySelectorAll('a[href^="#"]').forEach((link) => link.addEventListener('click', () => window.requestAnimationFrame(updateNavigation)));
+updateNavigation();
 
 // Reveal each block once; the selectable secret is deliberately excluded.
 if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
