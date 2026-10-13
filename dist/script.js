@@ -35,8 +35,15 @@ passwordForm?.addEventListener('submit', (event) => {
   const answer = passwordInput.value.trim().replace(/\s+/g, '').toUpperCase();
 
   if (answer === ticketPassword) {
+    if (passwordForm.dataset.unlocking) return;
+    passwordForm.dataset.unlocking = 'true';
     sessionStorage.setItem('iniad-ticket-unlocked', 'true');
-    window.location.href = './ticket-guide.html';
+    passwordForm.closest('.locked-card').classList.add('is-unlocked');
+    passwordForm.querySelector('button').disabled = true;
+    passwordError.textContent = 'パスワードを確認しました。';
+    window.setTimeout(() => {
+      window.location.href = './ticket-guide.html';
+    }, window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 650);
     return;
   }
 
@@ -49,3 +56,20 @@ passwordInput?.addEventListener('input', () => {
   passwordInput.removeAttribute('aria-invalid');
   passwordError.textContent = '';
 });
+
+// Reveal each block once; the selectable secret is deliberately excluded.
+if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-visible');
+      revealObserver.unobserve(entry.target);
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+  document.querySelectorAll('.section-heading,.schedule-head,.boarding-steps li,.boarding-notes,.boarding-copy,.records-top,.records-text,.locked-card').forEach((element) => {
+    if (element.getBoundingClientRect().top < window.innerHeight) return;
+    element.classList.add('scroll-reveal');
+    revealObserver.observe(element);
+  });
+}
