@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a3152">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="description" content="過去と未来をつなぐ、時の海の船着場。INIAD PORTへようこそ。">
+  <title>INIAD PORT｜時の海の船着場</title>
+  <link rel="stylesheet" href="./styles.css?v=20261012-layout2">
+</head>
+<body>
+  <a class="skip-link" href="#main">本文へ移動</a>
+
+  <header class="site-header" id="top">
+    <a class="brand" href="#top" aria-label="INIAD PORT ホーム">
+      <span class="brand-mark" aria-hidden="true">
+        <img src="./assets/ship-logo.png" alt="">
+      </span>
+      <span><strong>INIAD PORT</strong><small>イニアド ポート</small></span>
+    </a>
+
+    <nav class="desktop-nav" aria-label="メインメニュー">
+      <a class="active" href="#top"><svg class="nav-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M3 11 12 3l9 8v10h-6v-6H9v6H3z"/></svg>ホーム</a>
+      <a href="#timetable"><svg class="nav-icon" aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/></svg>運航案内</a>
+      <a href="#boarding-info"><span class="nav-ship-image" aria-hidden="true"><img src="./assets/ship-logo.png" alt=""></span>乗船案内</a>
+      <a href="#tickets"><svg class="nav-icon" aria-hidden="true" viewBox="0 0 24 24"><g transform="rotate(-25 12 12)"><path d="M3 7h18v4a2.5 2.5 0 0 0 0 5v4H3v-4a2.5 2.5 0 0 0 0-5z"/><path d="M9 9v2M9 14v2M15 10h3M15 14h3"/></g></svg>チケット</a>
+      <a href="#records"><span class="nav-record-image" aria-hidden="true"><img src="./assets/travel-log-icon.png" alt=""></span>旅の記録</a>
+    </nav>
+
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-menu">
+      <span></span><span></span><span></span><b class="sr-only">メニューを開く</b>
+    </button>
+    <nav class="mobile-nav" id="mobile-menu" aria-label="モバイルメニュー" hidden>
+      <a href="#timetable">運航案内</a><a href="#boarding-info">乗船案内</a><a href="#tickets">チケットについて</a><a href="#records">旅の記録</a>
+    </nav>
+  </header>
+  <!-- Temporary comparison menu: remove before the festival. -->
+  <nav aria-label="比較用バージョン切替" style="padding:10px 20px;background:#eef6fa;color:#0a3152;font:13px/1.8 Arial,sans-serif;display:flex;flex-wrap:wrap;gap:8px 20px;border-bottom:1px solid #d2e1e9">
+    <span>比較用メニュー</span>
+    <a href="../hidden/index.html">案1：隠し文字</a>
+    <a href="../chest/index.html">案2：宝箱と鍵</a>
+    <a href="../acrostic/index.html">案3：縦読み</a>
+  </nav>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">THE HARBOR BEYOND TIME</p>
+        <h1 id="hero-title">過去と未来をつなぐ、<br><em>「時の海」</em>の船着場。</h1>
+        <p class="lead">時を超える旅人たちは、<br class="mobile-only">ここからそれぞれの時代へと出航します。</p>
+        <a class="hero-cta" href="#routes">次の航海へ進む <span class="direction-arrow" aria-hidden="true"></span></a>
+      </div>
+
+      <div class="harbor-scene" aria-hidden="true">
+        <div class="sun-ring"></div>
+        <div class="hero-art-frame" role="img" aria-label="波間を進む船とカモメ">
+          <img class="hero-layer hero-waves" src="./assets/hero-waves.png" alt="">
+          <img class="hero-layer hero-ship-separated" src="./assets/hero-ship-separated.png" alt="">
+          <img class="hero-layer hero-seagulls" src="./assets/hero-seagulls.png" alt="">
+        </div>
+      </div>
+      <div class="hero-index" aria-hidden="true">PORT / 01</div>
+    </section>
+
+    <section class="status-wrap" aria-label="本日の運航状況">
+      <div class="status-card">
+        <div class="status-title"><span class="info-icon">i</span><strong>本日の運航状況</strong></div>
+        <div class="status-now"><span class="status-light"></span><strong>通常運航</strong><span>各航路は予定どおり運航しています。</span></div>
+        <a href="#timetable">運航情報の詳細 <span class="detail-chevron" aria-hidden="true"></span></a>
+      </div>
+    </section>
+
+    <section class="menu-section" id="routes" aria-labelledby="menu-title">
+      <div class="section-heading"><span>PORT GUIDE</span><h2 id="menu-title">時の海へのご案内</h2><p>ご希望の案内をお選びください</p></div>
+      <div class="guide-grid">
+        <a class="guide-card" href="#timetable"><span class="card-no">01</span><div class="line-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="19"/><path d="M24 12v13l9 5"/></svg></div><div><h3>運航案内</h3><p>ROUTE GUIDE</p></div><span class="card-arrow" aria-hidden="true"></span></a>
+        <a class="guide-card" id="boarding" href="#boarding-info"><span class="card-no">02</span><div class="line-icon ship-card-image" aria-hidden="true"><img src="./assets/ship-logo.png" alt=""></div><div><h3>乗船案内</h3><p>BOARDING</p></div><span class="card-arrow" aria-hidden="true"></span></a>
+        <a class="guide-card" href="#tickets"><span class="card-no">03</span><div class="line-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><g transform="rotate(-28 24 24)"><path d="M6 13h36v8a5 5 0 0 0 0 10v8H6v-8a5 5 0 0 0 0-10z"/><path d="M18 17v5M18 27v5M29 20h7M29 27h7"/></g></svg></div><div><h3>チケットについて</h3><p>TICKETS</p></div><span class="card-arrow" aria-hidden="true"></span></a>
+        <a class="guide-card" href="#records"><span class="card-no">04</span><div class="line-icon record-card-image" aria-hidden="true"><img src="./assets/travel-log-icon.png" alt=""></div><div><h3>旅の記録</h3><p>TRAVEL LOG</p></div><span class="card-arrow" aria-hidden="true"></span></a>
+      </div>
+    </section>
+
+    <section class="schedule-section" id="timetable" aria-labelledby="schedule-title">
+      <div class="schedule-main">
+        <div class="section-label">TODAY'S DEPARTURES <span>— 2026.10.12</span></div>
+        <div class="schedule-head"><h2 id="schedule-title">運航時刻表</h2><span>時の海 標準時</span></div>
+        <div class="route-tabs" role="tablist" aria-label="航路を選択">
+          <button class="selected" data-route="all" role="tab" aria-selected="true">すべて</button>
+          <button data-route="past" role="tab" aria-selected="false">過去</button>
+          <button data-route="future" role="tab" aria-selected="false">未来</button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>出航時刻</th><th>行き先</th><th>乗り場</th><th>運航</th></tr></thead>
+            <tbody>
+              <tr data-route="past"><td><b>09:30</b></td><td>過去</td><td>第1桟橋</td><td><span class="on-time">定刻</span></td></tr>
+              <tr data-route="future"><td><b>10:45</b></td><td>未来</td><td>第2桟橋</td><td><span class="on-time">定刻</span></td></tr>
+              <tr data-route="future"><td><b>12:00</b></td><td>未来</td><td>第2桟橋</td><td><span class="on-time">定刻</span></td></tr>
+              <tr data-route="past"><td><b>13:20</b></td><td>過去</td><td>第1桟橋</td><td><span class="on-time">定刻</span></td></tr>
+              <tr data-route="future"><td><b>14:50</b></td><td>未来</td><td>第2桟橋</td><td><span class="on-time">定刻</span></td></tr>
+              <tr data-route="past"><td><b>16:10</b></td><td>過去</td><td>第1桟橋</td><td><span class="on-time">定刻</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <aside class="notice-board" aria-labelledby="notice-title">
+        <div class="notice-head"><span>INFORMATION</span><h2 id="notice-title">港からのお知らせ</h2></div>
+        <ol>
+          <li><time datetime="2026-10-12">2026.10.12</time><p>本日の運航について</p></li>
+          <li><time datetime="2026-10-01">2026.10.01</time><p>乗船案内を更新しました</p></li>
+          <li><time datetime="2026-09-18">2026.09.18</time><p>時の海を渡る皆さまへ</p></li>
+        </ol>
+      </aside>
+    </section>
+
+    <section class="boarding-guide" id="boarding-info" aria-labelledby="boarding-guide-title">
+      <div class="section-heading"><span>BOARDING GUIDE</span><h2 id="boarding-guide-title">乗船案内</h2><p>乗船までの流れをご案内します。</p></div>
+      <ol class="boarding-steps">
+        <li><span class="boarding-step-no">01</span><div><h3>運航状況・乗り場の確認</h3><p>ご乗船前に、本日の運航状況と運航時刻表をご確認ください。過去航路は第1桟橋、未来航路は第2桟橋から出航します。</p><a href="#timetable">運航時刻表を見る →</a></div></li>
+        <li><span class="boarding-step-no">02</span><div><h3>乗船チケットの準備</h3><p>時を超えるチケットをお手元にご用意ください。行き先をご確認のうえ、ご案内のあるまで港でお待ちください。</p><a href="#tickets">チケットについて →</a></div></li>
+        <li><span class="boarding-step-no">03</span><div><h3>乗船口へ</h3><p>乗船開始のご案内がありましたら、指定の桟橋へお進みください。乗船口でチケットを提示し、係員の案内に沿ってご乗船ください。</p><p class="boarding-ticket-reminder">チケットは旅の終わりまで大切にお持ちください。</p></div></li>
+      </ol>
+      <div class="boarding-notes"><h3>ご乗船のお客様へ</h3><ul><li>乗り場や運航状況が変更となる場合は、港からのお知らせでご案内します。</li><li>ご不明な点やお手伝いが必要な場合は、お近くの係員へお声がけください。</li></ul></div>
+    </section>
+
+    <section class="boarding-info" aria-labelledby="boarding-title">
+      <div class="ticket-visual" aria-hidden="true">
+        <div class="ticket-stub"><span>INIAD PORT</span><strong>TIME TRAVEL<br>BOARDING PASS</strong><small>GATE 01 · 2026</small></div>
+      </div>
+      <div class="boarding-copy" id="tickets">
+        <p class="eyebrow">SPECIAL BOARDING PASS</p>
+        <h2 id="boarding-title">時を超えるチケット</h2>
+        <p>時の海を渡る船に乗るために必要な、特別な乗船券。失くさないよう、旅の終わりまで大切にお持ちください。</p>
+        <dl><div><dt>乗船場所</dt><dd>INIAD PORT</dd></div><div><dt>必要なもの</dt><dd>時を超えるチケット</dd></div></dl>
+      </div>
+    </section>
+
+    <section class="records-section" id="records" aria-labelledby="records-title">
+      <div class="records-top"><p class="eyebrow">MEMORIES OF YOUR VOYAGE</p><h2 id="records-title"><span>旅の思い出を、</span><br><span>アルバムに残しませんか？</span></h2></div>
+      <div class="records-content">
+        <div class="records-text"><p>旅で使った乗船チケットも、<br>大切な旅の思い出のひとつ。</p><p class="muted">航海を終えた旅人だけが、チケットの使い方をご覧いただけます。</p>
+      <div class="harbor-treasure" aria-label="旅の荷物">
+        <svg class="voyage-keepsakes" viewBox="0 0 240 112" aria-hidden="true">
+          <path d="M12 99H228" class="keepsake-ground"/>
+          <g transform="rotate(-9 80 59)"><path d="M29 19h46q12 0 14 7q4-7 16-7h39v73h-39q-12 0-16 6q-5-6-16-6H29Z"/><path d="M89 26v72M39 33h31v25H39ZM40 69h31M40 77h25M104 35h27M104 45h22"/><path d="m41 54 9-10 8 7 10-8"/></g>
+          <g transform="rotate(13 153 59)"><path d="M124 39h58v8a5 5 0 0 0 0 10v8h-58v-8a5 5 0 0 0 0-10Z"/><path d="M166 44v4m0 9v4M136 49h20M136 56h15"/></g>
+        </svg>
+        <button class="treasure-chest" type="button" aria-label="宝箱をノックする">
+          <svg viewBox="0 0 120 100" aria-hidden="true"><g class="chest-lid"><path d="M16 33h88v14H16Z"/></g><path d="M19 47h82v40H19Z"/><path d="M35 33v54M85 33v54M20 58l80 20"/></svg>
+        </button>
+        <button class="treasure-key" type="button" aria-label="鍵を鍵穴へ運ぶ" hidden><svg viewBox="0 0 90 40" aria-hidden="true"><circle cx="19" cy="20" r="13"/><path d="M32 20h48M65 20v12M77 20v9"/></svg></button>
+        <p class="treasure-message" role="status" aria-live="polite"></p>
+      </div>
+        </div>
+        <div class="locked-card">
+          <button class="treasure-keyhole ticket-keyhole" type="button" aria-label="鍵穴"><svg viewBox="0 0 32 36" aria-hidden="true"><path class="padlock-shackle" d="M8 16V11a8 8 0 0 1 16 0v5"/><rect x="4" y="15" width="24" height="18" rx="3"/><circle cx="16" cy="23" r="2"/><path d="M16 25v4"/></svg></button>
+          <div><strong>チケットの使い方</strong><small>TICKET GUIDE</small></div>
+          <div class="unlock-panel">
+            <form class="unlock-form" id="ticket-password-form" novalidate>
+              <label class="sr-only" for="ticket-password">パスワード</label>
+              <input id="ticket-password" name="password" type="text" inputmode="text" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="パスワードを入力" required>
+              <button type="submit">先へ進む</button>
+            </form>
+            <p class="password-error" id="password-error" role="status" aria-live="polite"></p>
+            <details class="password-help">
+              <summary>パスワードがわからない方はこちら</summary>
+              <div><p>サイトのどこかに鍵が隠れています。</p><p>見つけた鍵を、鍵穴へ運んでください。</p></div>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-brand"><strong>INIAD PORT</strong><span>時の海の船着場</span></div>
+    <p>よい航海を。いつか、またこの港で。</p>
+    <a class="page-top" href="#top">PAGE TOP <span aria-hidden="true"></span></a>
+  </footer>
+  <script src="./script.js"></script>
+</body>
+</html>
