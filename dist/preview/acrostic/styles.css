@@ -267,12 +267,13 @@ th,td{vertical-align:middle}
   filter:drop-shadow(18px 24px 0 #dfeef5);
 }
 .ticket-stub:before,.ticket-stub:after{display:none}
+.records-section .harbor-treasure{display:block!important;height:112px;min-height:112px;margin-bottom:12px;pointer-events:none}
 .greeting-lines p{white-space:nowrap}
 @media(max-width:350px){.greeting-lines p{font-size:12px!important;letter-spacing:.01em}}
 .harbor-greeting{padding:64px clamp(24px,7vw,100px) 0;color:var(--ink);max-width:1000px;margin:0 auto}
 .harbor-greeting h2{font-family:var(--serif);font-size:26px;font-weight:500;letter-spacing:.1em;margin:0 0 24px}
 .greeting-lines p{font-family:var(--serif);font-size:15px;line-height:2;margin:0 0 10px;color:#536f85}
-.records-section .harbor-treasure{display:none!important}
+.records-section .harbor-treasure{display:block!important;pointer-events:none}
 .locked-card .ticket-keyhole{pointer-events:none;cursor:default}
 @media(max-width:680px){.harbor-greeting{padding:48px 24px 0}.harbor-greeting h2{font-size:23px}.greeting-lines p{font-size:14px;margin-bottom:14px}}
 .records-section .harbor-treasure{display:block;min-height:0;width:240px;height:112px;margin:22px 0 0;max-width:100%;text-align:left}

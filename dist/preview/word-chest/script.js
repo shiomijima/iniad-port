@@ -39,7 +39,7 @@ const ticketPassword = 'キーワード';
 
 const chest = document.querySelector('.treasure-chest');
 const treasureKey = document.querySelector('.treasure-key');
-const keyhole = document.querySelector('.treasure-keyhole');
+const keyhole = document.querySelector('.treasure-chest');
 const treasureMessage = document.querySelector('.treasure-message');
 let knocks = 0;
 let keyPicked = false;
@@ -62,26 +62,9 @@ function unlockTreasure() {
   if (treasureUnlocked || !keyPicked) return;
   treasureUnlocked = true;
   treasureKey.hidden = true;
-  keyhole.classList.add('is-unlocked');
-  const answer = document.querySelector('.chest-answer');
-  answer.textContent = '合言葉：キーワード';
-  answer.hidden = false;
-  treasureMessage.textContent = '';
+  keyhole.classList.add('is-unlocked', 'is-open');
+  treasureMessage.textContent = '合言葉：キーワード';
 }
-
-chest?.addEventListener('click', () => {
-  if (knocks >= 3) return;
-  knocks += 1;
-  chest.classList.remove('is-knocking');
-  void chest.offsetWidth;
-  chest.classList.add('is-knocking');
-  if (knocks === 3) {
-    chest.classList.add('is-open');
-    chest.setAttribute('aria-label', '開いた宝箱');
-    treasureKey.hidden = false;
-    treasureMessage.textContent = '';
-  }
-});
 
 treasureKey?.addEventListener('pointerdown', (event) => {
   if (treasureUnlocked || event.button !== 0) return;
