@@ -267,6 +267,15 @@ th,td{vertical-align:middle}
   filter:drop-shadow(18px 24px 0 #dfeef5);
 }
 .ticket-stub:before,.ticket-stub:after{display:none}
+.records-caption{display:flex;align-items:center;justify-content:flex-start;gap:24px;margin-bottom:28px;max-width:100%}
+.records-top .records-caption .eyebrow{margin:0;min-width:0}
+.records-caption .password-chest{display:block;flex:0 0 64px;width:64px;height:56px;margin:0;padding:5px;border:0!important;border-radius:0;background:none;cursor:pointer}
+.records-caption .password-chest svg{display:block;width:100%;height:100%;fill:var(--ink);stroke:#92b9d1;stroke-width:2;stroke-linejoin:round;overflow:visible}
+.password-chest-lid{transform-origin:9px 28px;transition:transform .4s ease}
+.password-chest.is-unlocked .password-chest-lid{transform:translateY(-6px) rotate(-12deg)}
+.chest-answer{font-size:16px;line-height:1.8;margin:0 0 20px;color:#fff}
+.chest-answer[hidden]{display:none}
+@media(max-width:680px){.records-caption{gap:14px;margin-bottom:24px}.records-top .records-caption .eyebrow{font-size:10px;line-height:1.7;letter-spacing:.18em}.records-caption .password-chest{flex-basis:48px;width:48px;height:46px}.chest-answer{font-size:14px}}
 .records-section .harbor-treasure{display:block;min-height:0;width:240px;height:112px;margin:22px 0 0;max-width:100%;text-align:left}
 .voyage-keepsakes{display:block;width:100%;height:100%;fill:none;stroke:#92b9d1;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;opacity:.65;pointer-events:none}
 .voyage-keepsakes .keepsake-ground{stroke:#587c96;stroke-width:1}

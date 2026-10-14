@@ -51,7 +51,10 @@ function unlockTreasure() {
   treasureUnlocked = true;
   treasureKey.hidden = true;
   keyhole.classList.add('is-unlocked');
-  treasureMessage.textContent = '合言葉：キーワード';
+  const answer = document.querySelector('.chest-answer');
+  answer.textContent = '合言葉：キーワード';
+  answer.hidden = false;
+  treasureMessage.textContent = '';
 }
 
 chest?.addEventListener('click', () => {
