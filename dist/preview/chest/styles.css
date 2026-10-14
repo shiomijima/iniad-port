@@ -309,3 +309,9 @@ tbody tr[hidden]{display:none!important}
 .is-unlocked .lock-icon>path:first-child{transform:translateY(-4px) rotate(-12deg)}
 .is-unlocked .password-error{color:var(--blue)!important}
 @media(prefers-reduced-motion:reduce){.hero-layer,.boarding-guide+.boarding-info:before{animation:none!important}.scroll-reveal{opacity:1;transform:none;transition:none}.lock-icon>path:first-child,.guide-card .card-arrow{transition:none}}
+.records-section .harbor-treasure{height:auto;min-height:112px;padding-bottom:8px;margin-bottom:16px}
+.records-section .voyage-keepsakes{height:112px}
+.records-section .harbor-treasure .treasure-chest{top:45px;bottom:auto}
+.records-section .harbor-treasure .treasure-message{position:static;margin:12px 0 0;line-height:1.8}
+.records-section .harbor-treasure .treasure-message:empty{display:none}
+.locked-card .ticket-keyhole svg{overflow:visible}
