@@ -20,16 +20,36 @@ mobileMenu.querySelectorAll('a').forEach((link) => link.addEventListener('click'
 }));
 
 const routeButtons = document.querySelectorAll('.route-tabs button');
-const departures = document.querySelectorAll('tbody tr');
+const scheduleBody = document.querySelector('.schedule-section tbody');
+const daySchedules = {
+  weekday: [['09:30','past'],['10:45','future'],['12:00','future'],['13:20','past'],['14:50','future'],['16:10','past']],
+  holiday: [['09:00','past'],['10:00','future'],['11:00','past'],['12:00','future'],['13:00','past'],['14:00','future'],['15:00','past'],['16:30','future']],
+};
+function renderSchedule(day) {
+  if (!scheduleBody || !daySchedules[day]) return;
+  scheduleBody.replaceChildren(...daySchedules[day].map(([time,route]) => {
+    const row = document.createElement('tr');
+    row.dataset.route = route;
+    const values = [time, route === 'past' ? '過去' : '未来', route === 'past' ? '第1桟橋' : '第2桟橋', '定刻'];
+    values.forEach((value,index) => {
+      const cell = document.createElement('td');
+      const content = index === 0 ? document.createElement('b') : index === 3 ? document.createElement('span') : cell;
+      content.textContent = value;
+      if (index === 3) content.className = 'on-time';
+      if (content !== cell) cell.append(content);
+      row.append(cell);
+    });
+    return row;
+  }));
+}
 
 routeButtons.forEach((button) => button.addEventListener('click', () => {
   routeButtons.forEach((item) => {
     item.classList.toggle('selected', item === button);
     item.setAttribute('aria-selected', String(item === button));
   });
-  departures.forEach((row) => {
-    row.hidden = button.dataset.route !== 'all' && row.dataset.route !== button.dataset.route;
-  });
+  renderSchedule(button.dataset.schedule);
+  document.querySelector('.schedule-section table')?.setAttribute('aria-label', button.textContent.trim() + 'の運航時刻表');
 }));
 
 const passwordForm = document.querySelector('#ticket-password-form');

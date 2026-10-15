@@ -7,7 +7,7 @@
   <meta name="robots" content="noindex,nofollow">
   <meta name="description" content="過去と未来をつなぐ、時の海の船着場。INIAD PORTへようこそ。">
   <title>INIAD PORT｜時の海の船着場</title>
-  <link rel="stylesheet" href="./styles.css?v=20261012-layout2">
+  <link rel="stylesheet" href="./styles.css?v=20261015-timetable1">
 </head>
 <body>
   <a class="skip-link" href="#main">本文へ移動</a>
@@ -94,15 +94,14 @@
 
     <section class="schedule-section" id="timetable" aria-labelledby="schedule-title">
       <div class="schedule-main">
-        <div class="section-label">TODAY'S DEPARTURES <span>— 2026.10.12</span></div>
+        <div class="section-label">DEPARTURE TIMETABLE</div>
         <div class="schedule-head"><h2 id="schedule-title">運航時刻表</h2><span>時の海 標準時</span></div>
-        <div class="route-tabs" role="tablist" aria-label="航路を選択">
-          <button class="selected" data-route="all" role="tab" aria-selected="true">すべて</button>
-          <button data-route="past" role="tab" aria-selected="false">過去</button>
-          <button data-route="future" role="tab" aria-selected="false">未来</button>
+        <div class="route-tabs" role="tablist" aria-label="運航日を選択">
+          <button class="selected" data-schedule="weekday" role="tab" aria-selected="true">平日</button>
+          <button data-schedule="holiday" role="tab" aria-selected="false">土日祝</button>
         </div>
         <div class="table-wrap">
-          <table>
+          <table aria-label="平日の運航時刻表">
             <thead><tr><th>出航時刻</th><th>行き先</th><th>乗り場</th><th>運航</th></tr></thead>
             <tbody>
               <tr data-route="past"><td><b>09:30</b></td><td>過去</td><td>第1桟橋</td><td><span class="on-time">定刻</span></td></tr>
@@ -189,6 +188,6 @@
     <p>よい航海を。いつか、またこの港で。</p>
     <a class="page-top" href="#top">PAGE TOP <span aria-hidden="true"></span></a>
   </footer>
-  <script src="./script.js"></script>
+  <script src="./script.js?v=20261015-timetable1"></script>
 </body>
 </html>

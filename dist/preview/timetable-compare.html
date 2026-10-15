@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ja"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>時刻表の比較</title>
+<style>html,body{height:100%;margin:0}body{display:flex;flex-direction:column;font:14px/1.5 sans-serif;color:#0a3152}header{padding:12px 16px;background:#f2f8fb}button{font:inherit;padding:8px 12px;border:1px solid #9cb2c2;background:white;color:inherit;margin:6px 5px 0 0;cursor:pointer}button[aria-pressed=true]{background:#0a3152;color:white}iframe{border:0;flex:1;min-height:0;width:100%}</style>
+<header>スマホの時刻表を比較（幅680px以下で配置が切り替わります）<br><button id="table" aria-pressed="true">新：4列の表</button><button id="cards" aria-pressed="false">前：1便ずつカード</button></header>
+<iframe id="site" src="../index.html#timetable" title="時刻表プレビュー"></iframe>
+<script>
+const frame=document.querySelector('#site');
+frame.addEventListener('load',()=>{
+ const doc=frame.contentDocument,style=doc.createElement('style');
+ style.textContent=`@media(max-width:680px){
+ html.card-comparison .schedule-section table{display:table;border:0;table-layout:auto}
+ html.card-comparison .schedule-section thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+ html.card-comparison .schedule-section tbody{display:grid;gap:10px}
+ html.card-comparison .schedule-section tbody tr{display:grid;grid-template-columns:1fr 1fr;background:#fff;border:1px solid var(--line);padding:14px 16px}
+ html.card-comparison .schedule-section tbody td{display:flex;flex-direction:column;gap:2px;border:0;padding:6px 4px;font-size:12px;text-align:left;letter-spacing:.04em;white-space:normal}
+ html.card-comparison .schedule-section tbody td:before{display:block;font-size:9px;color:#7790a2;font-weight:400;letter-spacing:.12em}
+ html.card-comparison .schedule-section tbody td:nth-child(1):before{content:"出航時刻"}
+ html.card-comparison .schedule-section tbody td:nth-child(2):before{content:"行き先"}
+ html.card-comparison .schedule-section tbody td:nth-child(3):before{content:"乗り場"}
+ html.card-comparison .schedule-section tbody td:nth-child(4):before{content:"運航"}
+ html.card-comparison .schedule-section td b{font-size:18px;letter-spacing:.08em;min-height:24px}
+ html.card-comparison .schedule-section .on-time{align-self:flex-start;padding:2px 9px}
+ }`;
+ doc.head.append(style);
+ for(const id of ['table','cards'])document.getElementById(id).onclick=()=>{doc.documentElement.classList.toggle('card-comparison',id==='cards');for(const name of ['table','cards'])document.getElementById(name).setAttribute('aria-pressed',String(name===id));};
+});
+</script></html>
