@@ -336,11 +336,14 @@ th,td{vertical-align:middle}
 .records-section .harbor-treasure .treasure-key{left:0;right:auto;top:0}
 .records-section .harbor-treasure .treasure-message{position:static;margin:0;line-height:1.8}
 .records-section .harbor-treasure .treasure-message:empty{display:none}
-.records-section .harbor-treasure{width:240px;max-width:100%;min-height:112px;margin:22px 0 16px;padding-bottom:8px}
+.records-section .harbor-treasure{width:340px;max-width:100%;min-height:112px;margin:22px 0 16px;padding-bottom:8px}
 .records-section .harbor-treasure:has(.treasure-key:not([hidden])){min-height:112px}
-.records-section .harbor-treasure .voyage-keepsakes{display:block;height:112px}
-.records-section .harbor-treasure .treasure-chest{display:block;top:45px;bottom:auto}
-.records-section .harbor-treasure .treasure-key{left:100px;right:auto;top:0}
+.records-section .harbor-treasure:before{content:"";position:absolute;left:12px;right:0;top:99px;height:1px;background:#587c96;opacity:.65;pointer-events:none}
+.records-section .harbor-treasure .voyage-keepsakes{display:block;width:240px;max-width:none;height:112px}
+.records-section .harbor-treasure .keepsake-ground{display:none}
+.records-section .harbor-treasure .treasure-chest{display:block;left:162px;right:auto;top:45px;bottom:auto}
+.records-section .harbor-treasure .treasure-key{left:auto;right:0;top:70px;width:60px;padding:6px;min-height:44px}
+.records-section .harbor-treasure .treasure-key svg{transform:rotate(16deg);transform-origin:center}
 .records-section .harbor-treasure .treasure-message{margin-top:12px}
 tbody tr[hidden]{display:none!important}
 
