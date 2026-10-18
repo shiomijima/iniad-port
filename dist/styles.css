@@ -136,6 +136,7 @@
 .records-secret-space{position:relative;display:block;background:var(--ink);margin-top:20px;line-height:2}
 .records-secret{display:inline-block;color:var(--ink);font-family:var(--serif);font-size:18px;font-weight:400;letter-spacing:.04em;line-height:2;padding:0;user-select:text;-webkit-user-select:text;cursor:text}
 .records-secret::selection{color:#fff;background:#397eab}
+.records-secret.is-selected{color:#fff}
 .records-secret-space+.records-content{margin-top:16px}
 @media(max-width:680px){.records-secret-space{margin-top:18px}.records-secret{font-size:18px}}
 .password-help div{margin-top:12px;padding:0 2px}
@@ -266,6 +267,84 @@ th,td{vertical-align:middle}
   filter:drop-shadow(18px 24px 0 #dfeef5);
 }
 .ticket-stub:before,.ticket-stub:after{display:none}
+.records-top .password-chest{display:none!important}
+.records-caption{display:flex;align-items:center;justify-content:flex-start;gap:24px;margin-bottom:28px;max-width:100%}
+.records-top .records-caption .eyebrow{margin:0;min-width:0}
+.records-caption .password-chest{display:block;flex:0 0 64px;width:64px;height:56px;margin:0;padding:5px;border:0!important;border-radius:0;background:none;cursor:pointer}
+.records-caption .password-chest svg{display:block;width:100%;height:100%;fill:var(--ink);stroke:#92b9d1;stroke-width:2;stroke-linejoin:round;overflow:visible}
+.password-chest-lid{transform-origin:9px 28px;transition:transform .4s ease}
+.password-chest.is-unlocked .password-chest-lid{transform:translateY(-6px) rotate(-12deg)}
+.chest-answer{font-size:16px;line-height:1.8;margin:0 0 20px;color:#fff}
+.chest-answer[hidden]{display:none}
+@media(max-width:680px){.records-caption{gap:14px;margin-bottom:24px}.records-top .records-caption .eyebrow{font-size:10px;line-height:1.7;letter-spacing:.18em}.records-caption .password-chest{flex-basis:48px;width:48px;height:46px}.chest-answer{font-size:14px}}
+.word-voyage{max-width:900px;margin:0 auto;padding:56px 24px 0}
+.word-voyage h2{font:500 25px/1.7 var(--serif);margin:0 0 22px}
+.word-discovery{max-width:900px;margin:0 auto;padding:0 24px;color:var(--ink);font-size:14px;line-height:2}
+.word-discovery[hidden]{display:none}
+.word-discovery a{display:inline-block;text-decoration:underline;text-underline-offset:4px;margin-left:8px}
+.word-voyage p{font:15px/2.2 var(--serif);color:#536f85;margin:0 0 28px;max-width:38em}
+.hidden-word{position:relative;display:inline-block;border:0;padding:0;margin:0;background:none;color:inherit;font:inherit;letter-spacing:inherit;cursor:text;border-radius:0}
+.hidden-word:before{content:"";position:absolute;inset:-6px -4px}
+.hidden-word[aria-pressed="true"]{color:#0a547f;background:#dceef8;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px;box-shadow:0 0 0 3px #dceef8;animation:word-found .35s ease-out}
+@keyframes word-found{50%{transform:translateY(-3px) scale(1.12)}100%{transform:none}}
+.hidden-word:focus-visible{outline:1px solid #267caa;outline-offset:3px}
+.records-section .harbor-treasure .treasure-chest,.records-section .voyage-keepsakes{display:none}
+.records-section .harbor-treasure{height:auto;min-height:0;margin-top:10px}
+.records-section .harbor-treasure:has(.treasure-key:not([hidden])){min-height:42px}
+.records-section .treasure-message{margin:6px 0 0;font-size:16px;line-height:1.8}
+.records-section .treasure-message:empty{display:none}
+.locked-card .ticket-keyhole{overflow:visible}
+.locked-card .ticket-keyhole svg{overflow:visible}
+.locked-card:has(.ticket-keyhole){overflow:visible}
+.records-content{align-items:start}
+.harbor-treasure .treasure-key{left:0;right:auto;top:0}
+.records-section .harbor-treasure{display:block;min-height:0;width:240px;height:112px;margin:22px 0 0;max-width:100%;text-align:left}
+.voyage-keepsakes{display:block;width:100%;height:100%;fill:none;stroke:#92b9d1;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;opacity:.65;pointer-events:none}
+.voyage-keepsakes .keepsake-ground{stroke:#587c96;stroke-width:1}
+.harbor-treasure .treasure-chest{position:absolute;right:12px;bottom:12px;display:block;width:66px;height:55px;padding:0;opacity:.65;transition:opacity .2s;vertical-align:middle}
+.harbor-treasure .treasure-chest svg{fill:var(--ink);stroke:#92b9d1;stroke-width:2.7}
+.harbor-treasure .treasure-chest:hover,.harbor-treasure .treasure-chest:focus-visible{opacity:1}
+.harbor-treasure .treasure-key{left:auto;right:0;top:0;width:76px}
+.records-section .treasure-message{position:static;margin:8px 0 0;text-align:left}
+.locked-card .ticket-keyhole{display:grid;place-items:center;width:32px;height:38px;padding:0;margin:0;justify-self:center;border:0!important;border-radius:0;background:none;cursor:pointer;flex:none;grid-column:auto}
+.locked-card .ticket-keyhole svg{width:28px;height:32px;fill:none;stroke:var(--ink);stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.ticket-keyhole svg circle{fill:var(--ink);stroke:none}
+.ticket-keyhole .padlock-shackle{transition:transform .4s ease;transform-origin:8px 15px}
+.ticket-keyhole.is-unlocked .padlock-shackle{transform:translateY(-4px) rotate(-12deg)}
+.ticket-keyhole.is-unlocked svg{stroke:#397eab}
+.harbor-treasure{position:relative;display:flex;align-items:center;justify-content:space-between;max-width:440px;min-height:170px;margin:24px 0;color:#a8c8db}
+.harbor-treasure button{border:0;background:none;color:inherit;padding:12px;cursor:pointer}
+.treasure-chest{width:144px}
+.treasure-chest svg{display:block;width:100%;fill:#164568;stroke:#a8c8db;stroke-width:3;stroke-linejoin:round}
+.chest-lid{transform-origin:15px 45px;transition:transform .5s ease}
+.treasure-chest.is-open .chest-lid{transform:translateY(-12px) rotate(-12deg)}
+.treasure-chest.is-knocking{animation:chest-knock .25s ease}
+@keyframes chest-knock{25%{transform:rotate(-3deg)}75%{transform:rotate(3deg)}}
+.treasure-key{position:absolute;left:150px;top:58px;width:100px;z-index:5;touch-action:none;user-select:none;-webkit-user-select:none}
+.treasure-key[hidden]{display:none}
+.treasure-key svg{display:block;width:100%;fill:none;stroke:#e4c78d;stroke-width:4;stroke-linecap:round;pointer-events:none}
+.treasure-key.is-picked{filter:drop-shadow(0 0 5px #e4c78d)}
+.treasure-keyhole{width:74px;height:88px;border:1px solid #6e90a9!important;border-radius:50%;margin-left:auto}
+.treasure-keyhole svg{width:40px;height:54px;fill:var(--ink);stroke:#a8c8db;stroke-width:2}
+.treasure-keyhole.is-unlocked{border-color:#e4c78d!important}
+.treasure-message{position:absolute;top:100%;left:0;margin:0;font-size:16px;color:#fff}
+@media(max-width:430px){.treasure-key{left:120px;width:88px}.harbor-treasure{margin-bottom:40px}}
+
+/* Word variant: do not retain the chest illustration's empty fixed-height stage. */
+.records-section .harbor-treasure{height:auto;min-height:0;margin:8px 0 0;width:100%}
+.records-section .harbor-treasure:has(.treasure-key:not([hidden])){min-height:40px}
+.records-section .harbor-treasure .treasure-key{left:0;right:auto;top:0}
+.records-section .harbor-treasure .treasure-message{position:static;margin:0;line-height:1.8}
+.records-section .harbor-treasure .treasure-message:empty{display:none}
+.records-section .harbor-treasure{width:340px;max-width:100%;min-height:112px;margin:22px 0 16px;padding-bottom:8px}
+.records-section .harbor-treasure:has(.treasure-key:not([hidden])){min-height:112px}
+.records-section .harbor-treasure:before{content:"";position:absolute;left:12px;right:0;top:99px;height:1px;background:#587c96;opacity:.65;pointer-events:none}
+.records-section .harbor-treasure .voyage-keepsakes{display:block;width:240px;max-width:none;height:112px}
+.records-section .harbor-treasure .keepsake-ground{display:none}
+.records-section .harbor-treasure .treasure-chest{display:block;left:162px;right:auto;top:45px;bottom:auto}
+.records-section .harbor-treasure .treasure-key{left:auto;right:0;top:70px;width:60px;padding:6px;min-height:44px}
+.records-section .harbor-treasure .treasure-key svg{transform:rotate(16deg);transform-origin:center}
+.records-section .harbor-treasure .treasure-message{margin-top:12px}
 tbody tr[hidden]{display:none!important}
 
 /* Timetable: practical harbor-style header, rules and alternating rows. */

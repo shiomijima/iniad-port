@@ -57,6 +57,85 @@ const passwordInput = document.querySelector('#ticket-password');
 const passwordError = document.querySelector('#password-error');
 const ticketPassword = 'キーワード';
 
+const chest = document.querySelector('.treasure-chest');
+const treasureKey = document.querySelector('.treasure-key');
+const keyhole = document.querySelector('.treasure-chest');
+const treasureMessage = document.querySelector('.treasure-message');
+let knocks = 0;
+let keyPicked = false;
+let treasureUnlocked = false;
+let keyDrag = null;
+const foundWords = new Set();
+document.querySelectorAll('.hidden-word').forEach((word) => {
+  word.addEventListener('click', () => {
+    foundWords.add(word.dataset.word);
+    word.setAttribute('aria-pressed', 'true');
+    if (foundWords.size === 2) {
+      treasureKey.hidden = false;
+      const notice = document.querySelector('.word-discovery');
+      if (notice) notice.hidden = false;
+    }
+  });
+});
+
+function unlockTreasure() {
+  if (treasureUnlocked || !keyPicked) return;
+  treasureUnlocked = true;
+  treasureKey.hidden = true;
+  keyhole.classList.add('is-unlocked', 'is-open');
+  treasureMessage.textContent = '合言葉：キーワード';
+}
+
+treasureKey?.addEventListener('pointerdown', (event) => {
+  if (treasureUnlocked || event.button !== 0) return;
+  event.preventDefault();
+  keyPicked = true;
+  treasureKey.classList.add('is-picked');
+  keyDrag = { x: event.clientX, y: event.clientY };
+  treasureKey.setPointerCapture(event.pointerId);
+});
+treasureKey?.addEventListener('pointermove', (event) => {
+  if (!keyDrag) return;
+  treasureKey.style.transform = `translate(${event.clientX - keyDrag.x}px, ${event.clientY - keyDrag.y}px)`;
+});
+treasureKey?.addEventListener('pointerup', (event) => {
+  if (!keyDrag) return;
+  const hole = keyhole.getBoundingClientRect();
+  const key = treasureKey.getBoundingClientRect();
+  keyDrag = null;
+  if (key.right >= hole.left && key.left <= hole.right && key.bottom >= hole.top && key.top <= hole.bottom) unlockTreasure();
+  treasureKey.style.transform = '';
+});
+treasureKey?.addEventListener('pointercancel', () => {
+  keyDrag = null;
+  treasureKey.style.transform = '';
+});
+// Keyboard and tap alternative to dragging.
+treasureKey?.addEventListener('click', () => {
+  if (treasureUnlocked) return;
+  keyPicked = true;
+  treasureKey.classList.add('is-picked');
+  treasureMessage.textContent = '';
+});
+keyhole?.addEventListener('click', unlockTreasure);
+
+// Reveal selected secret text independently of the browser's selection colors.
+const secretText = document.querySelector('.records-secret');
+document.addEventListener('selectionchange', () => {
+  if (!secretText) return;
+  const selection = window.getSelection();
+  let selected = false;
+  if (selection && !selection.isCollapsed) {
+    for (let index = 0; index < selection.rangeCount; index += 1) {
+      if (selection.getRangeAt(index).intersectsNode(secretText)) {
+        selected = true;
+        break;
+      }
+    }
+  }
+  secretText.classList.toggle('is-selected', selected);
+});
+
 passwordForm?.addEventListener('submit', (event) => {
   event.preventDefault();
   const answer = passwordInput.value.trim().replace(/\s+/g, '').toUpperCase();
