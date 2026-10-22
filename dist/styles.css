@@ -142,6 +142,14 @@
 .password-help div{margin-top:12px;padding:0 2px}
 .password-help div p{margin:5px 0;color:#375b74}
 .password-help div small{color:#718999}
+.password-help .hint-actions{display:flex;justify-content:flex-end;margin-top:14px;padding:0}
+.locked-card .hint-next{min-height:44px;padding:8px 14px;background:#fff;border:1px solid #9bb2c2;color:var(--blue);font:600 12px/1.6 var(--sans);cursor:pointer;grid-column:auto;width:auto}
+.locked-card .hint-next:hover,.locked-card .hint-next:focus-visible{background:#edf3f6}
+.locked-card .hint-next:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+.locked-card .hint-next:disabled{cursor:default;color:#536f85;border-color:transparent;background:none}
+.password-hints{margin:18px 0 0;padding-left:1.8em;color:#375b74;line-height:1.9}
+.password-hints li+li{margin-top:12px}
+.password-hints[hidden]{display:none}
 @media(max-width:680px){.unlock-form{grid-template-columns:1fr}.unlock-form button{width:100%}.locked-card .unlock-form button{grid-column:auto}}
 
 /* Keep the hero copy on two intentional lines instead of breaking inside Japanese phrases. */

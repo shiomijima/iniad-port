@@ -57,6 +57,26 @@ const passwordInput = document.querySelector('#ticket-password');
 const passwordError = document.querySelector('#password-error');
 const ticketPassword = 'キーワード';
 
+const hintButton = document.querySelector('.hint-next');
+const hintList = document.querySelector('#password-hints');
+const passwordHints = [
+  'サイトの文章の中に、宝箱の文字がそれぞれ隠れています。',
+  '見つけた「宝」と「箱」を、それぞれタップしてみましょう。',
+  '「旅の記録」に戻ると、鍵が現れています。鍵を近くの荷箱までドラッグしてみましょう。',
+  '荷箱を開けて見つけたパスワードを、入力欄に入力してください。',
+];
+let shownHints = 0;
+hintButton?.addEventListener('click', () => {
+  if (!hintList || shownHints >= passwordHints.length) return;
+  const hint = document.createElement('li');
+  hint.textContent = passwordHints[shownHints++];
+  hintList.hidden = false;
+  hintList.append(hint);
+  hintButton.setAttribute('aria-expanded', 'true');
+  hintButton.textContent = shownHints === passwordHints.length ? 'すべてのヒントを表示しました' : '次のヒント';
+  hintButton.disabled = shownHints === passwordHints.length;
+});
+
 const chest = document.querySelector('.treasure-chest');
 const treasureKey = document.querySelector('.treasure-key');
 const keyhole = document.querySelector('.treasure-chest');
@@ -83,7 +103,7 @@ function unlockTreasure() {
   treasureUnlocked = true;
   treasureKey.hidden = true;
   keyhole.classList.add('is-unlocked', 'is-open');
-  treasureMessage.textContent = '合言葉：キーワード';
+  treasureMessage.textContent = 'パスワード：キーワード';
 }
 
 treasureKey?.addEventListener('pointerdown', (event) => {
