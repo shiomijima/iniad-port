@@ -7,7 +7,7 @@
   <meta name="robots" content="noindex,nofollow">
   <meta name="description" content="過去と未来をつなぐ、時の海の船着場。INIAD PORTへようこそ。">
   <title>INIAD PORT｜時の海の船着場</title>
-  <link rel="stylesheet" href="./styles.css?v=20261023-hints">
+  <link rel="stylesheet" href="./styles.css?v=20261024-chest-popup">
 </head>
 <body>
   <a class="skip-link" href="#main">本文へ移動</a>
@@ -64,8 +64,14 @@
       </div>
     </section>
 
-    <section class="word-voyage"><h2>旅の思い出に</h2><p>旅先で出会った思い出は、いつまでも大切な<button class="hidden-word" type="button" data-word="treasure" aria-pressed="false">宝</button>物です。</p><p>写真やチケットをしまった<button class="hidden-word" type="button" data-word="box" aria-pressed="false">箱</button>を開けば、あの日の旅がよみがえります。</p></section>
-    <p class="word-discovery" role="status" aria-live="polite" hidden>旅の記録に鍵が現れました。 <a href="#records">旅の記録へ →</a></p>
+    <section class="word-voyage" aria-labelledby="voyage-message-title">
+      <h2 id="voyage-message-title">旅の思い出に</h2>
+      <p><span class="voyage-phrase">写真や乗船チケット、</span><span class="voyage-phrase">旅先で交わした言葉。</span></p>
+      <p><span class="voyage-phrase">アルバムは、旅の途中で</span><span class="voyage-phrase">見つけたものをしまう<button class="hidden-word" type="button" data-word="treasure-chest" aria-pressed="false">宝箱</button>です。</span></p>
+      <p><span class="voyage-phrase">ページをめくるたびに、</span><span class="voyage-phrase">あの日の景色がよみがえります。</span></p>
+      <p class="word-discovery" role="status" aria-live="polite" hidden>旅の記録に鍵が現れました。 <a href="#records">旅の記録へ →</a></p>
+    </section>
+
     <section class="menu-section" id="routes" aria-labelledby="menu-title">
       <div class="section-heading"><span>PORT GUIDE</span><h2 id="menu-title">時の海へのご案内</h2><p>ご希望の案内をお選びください</p></div>
       <div class="guide-grid">
@@ -133,7 +139,8 @@
     <section class="records-section" id="records" aria-labelledby="records-title">
       <div class="records-top"><div class="records-caption"><p class="eyebrow">MEMORIES OF YOUR VOYAGE</p><button class="treasure-keyhole password-chest" type="button" aria-label="合言葉の宝箱"><svg viewBox="0 0 80 64" aria-hidden="true"><g class="password-chest-lid"><path d="M9 28V19Q9 5 40 5t31 14v9Z"/><path d="M25 8v20M55 8v20"/></g><path d="M9 28h62v29H9Z"/><path d="M25 28v29M55 28v29"/><rect x="35" y="24" width="10" height="16" rx="2"/></svg></button></div><p class="chest-answer" role="status" aria-live="polite" hidden></p><h2 id="records-title"><span>旅の思い出を、</span><br><span>アルバムに残しませんか？</span></h2></div>
       <div class="records-content">
-        <div class="records-text"><p>旅で使った乗船チケットも、<br>大切な旅の思い出のひとつ。</p><p class="muted">航海を終えた旅人だけが、チケットの使い方をご覧いただけます。</p>
+        <div class="records-text"><p>旅で使った乗船チケットも、<br>大切な旅の思い出のひとつ。</p>
+        <p class="muted">航海を終えた旅人だけが、チケットの使い方をご覧いただけます。</p>
       <div class="harbor-treasure" aria-label="旅の荷物">
         <svg class="voyage-keepsakes" viewBox="0 0 240 112" aria-hidden="true">
           <path d="M12 99H228" class="keepsake-ground"/>
@@ -160,7 +167,8 @@
             <details class="password-help">
               <summary>パスワードがわからない方はこちら</summary>
               <div class="password-help-content">
-                <p>鍵は、文章の中の宝箱に隠れている</p><p>見つけた鍵で旅の記録の荷箱を開けよう！</p>
+                <p>鍵はこのサイトの中の文章中の宝箱に隠れている</p>
+                <p>宝箱をタップして見つけた鍵で、<a class="help-records-link" href="#records">旅の記録</a>にある荷箱を開けよう！</p>
                 <ol class="password-hints" id="password-hints" aria-live="polite" aria-relevant="additions" hidden></ol>
                 <div class="hint-actions"><button class="hint-next" type="button" aria-controls="password-hints" aria-expanded="false">ヒントを見る</button></div>
               </div>
@@ -176,6 +184,13 @@
     <p>よい航海を。いつか、またこの港で。</p>
     <a class="page-top" href="#top">PAGE TOP <span aria-hidden="true"></span></a>
   </footer>
-  <script src="./script.js?v=20261023-hints"></script>
+  <dialog class="password-found-dialog" id="password-found-dialog" aria-labelledby="password-found-title" aria-describedby="password-found-description">
+    <button class="password-found-close" type="button" aria-label="閉じる">×</button>
+    <h2 id="password-found-title">荷箱の中から、<br>メモが見つかった。</h2>
+    <p id="password-found-description"><span>チケットの使い方を見るための</span><span>パスワードです。</span></p>
+    <p class="password-found-value"><span>パスワード</span><strong>キーワード</strong></p>
+    <button class="password-found-next" type="button" autofocus>パスワード入力へ</button>
+  </dialog>
+  <script src="./script.js?v=20261024-chest-popup"></script>
 </body>
 </html>

@@ -60,9 +60,9 @@ const ticketPassword = 'キーワード';
 const hintButton = document.querySelector('.hint-next');
 const hintList = document.querySelector('#password-hints');
 const passwordHints = [
-  'サイトの文章の中に、宝箱の文字がそれぞれ隠れています。',
-  '見つけた「宝」と「箱」を、それぞれタップしてみましょう。',
-  '「旅の記録」に戻ると、鍵が現れています。鍵を近くの荷箱までドラッグしてみましょう。',
+  'サイトの冒頭にある「旅の思い出に」の文章を調べてみましょう。',
+  '見つけた「宝箱」の文字をタップしてみましょう。',
+  '「旅の記録」に鍵が現れています。鍵を近くの荷箱までドラッグしてみましょう。',
   '荷箱を開けて見つけたパスワードを、入力欄に入力してください。',
 ];
 let shownHints = 0;
@@ -81,16 +81,25 @@ const chest = document.querySelector('.treasure-chest');
 const treasureKey = document.querySelector('.treasure-key');
 const keyhole = document.querySelector('.treasure-chest');
 const treasureMessage = document.querySelector('.treasure-message');
+const passwordFoundDialog = document.querySelector('#password-found-dialog');
+passwordFoundDialog?.querySelector('.password-found-close').addEventListener('click', () => passwordFoundDialog.close());
+passwordFoundDialog?.querySelector('.password-found-next').addEventListener('click', () => {
+  passwordFoundDialog.close();
+  passwordInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  passwordInput.focus({ preventScroll: true });
+});
+passwordFoundDialog?.addEventListener('close', () => {
+  document.documentElement.classList.remove('password-dialog-open');
+});
 let knocks = 0;
 let keyPicked = false;
 let treasureUnlocked = false;
 let keyDrag = null;
-const foundWords = new Set();
 document.querySelectorAll('.hidden-word').forEach((word) => {
   word.addEventListener('click', () => {
-    foundWords.add(word.dataset.word);
+    if (treasureUnlocked) return;
     word.setAttribute('aria-pressed', 'true');
-    if (foundWords.size === 2) {
+    if (word.dataset.word === 'treasure-chest') {
       treasureKey.hidden = false;
       const notice = document.querySelector('.word-discovery');
       if (notice) notice.hidden = false;
@@ -104,6 +113,10 @@ function unlockTreasure() {
   treasureKey.hidden = true;
   keyhole.classList.add('is-unlocked', 'is-open');
   treasureMessage.textContent = 'パスワード：キーワード';
+  if (passwordFoundDialog && !passwordFoundDialog.open) {
+    passwordFoundDialog.showModal();
+    document.documentElement.classList.add('password-dialog-open');
+  }
 }
 
 treasureKey?.addEventListener('pointerdown', (event) => {
