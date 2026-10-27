@@ -55,7 +55,7 @@ routeButtons.forEach((button) => button.addEventListener('click', () => {
 const passwordForm = document.querySelector('#ticket-password-form');
 const passwordInput = document.querySelector('#ticket-password');
 const passwordError = document.querySelector('#password-error');
-const ticketPassword = 'キーワード';
+const ticketPassword = '思い出はたからもの';
 
 const hintButton = document.querySelector('.hint-next');
 const hintList = document.querySelector('#password-hints');
@@ -77,7 +77,7 @@ hintButton?.addEventListener('click', () => {
   hintButton.disabled = shownHints === passwordHints.length;
 });
 
-const chest = document.querySelector('.treasure-chest');
+
 const treasureKey = document.querySelector('.treasure-key');
 const keyhole = document.querySelector('.treasure-chest');
 const treasureMessage = document.querySelector('.treasure-message');
@@ -91,7 +91,7 @@ passwordFoundDialog?.querySelector('.password-found-next').addEventListener('cli
 passwordFoundDialog?.addEventListener('close', () => {
   document.documentElement.classList.remove('password-dialog-open');
 });
-let knocks = 0;
+
 let keyPicked = false;
 let treasureUnlocked = false;
 let keyDrag = null;
@@ -112,7 +112,7 @@ function unlockTreasure() {
   treasureUnlocked = true;
   treasureKey.hidden = true;
   keyhole.classList.add('is-unlocked', 'is-open');
-  treasureMessage.textContent = 'パスワード：キーワード';
+  treasureMessage.textContent = 'パスワード：思い出はたからもの';
   if (passwordFoundDialog && !passwordFoundDialog.open) {
     passwordFoundDialog.showModal();
     document.documentElement.classList.add('password-dialog-open');
@@ -151,23 +151,6 @@ treasureKey?.addEventListener('click', () => {
   treasureMessage.textContent = '';
 });
 keyhole?.addEventListener('click', unlockTreasure);
-
-// Reveal selected secret text independently of the browser's selection colors.
-const secretText = document.querySelector('.records-secret');
-document.addEventListener('selectionchange', () => {
-  if (!secretText) return;
-  const selection = window.getSelection();
-  let selected = false;
-  if (selection && !selection.isCollapsed) {
-    for (let index = 0; index < selection.rangeCount; index += 1) {
-      if (selection.getRangeAt(index).intersectsNode(secretText)) {
-        selected = true;
-        break;
-      }
-    }
-  }
-  secretText.classList.toggle('is-selected', selected);
-});
 
 passwordForm?.addEventListener('submit', (event) => {
   event.preventDefault();

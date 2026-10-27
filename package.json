@@ -2,6 +2,7 @@
   "name": "iniad-port-festival-site",
   "private": true,
   "scripts": {
-    "preview": "node preview-server.cjs"
+    "preview": "node preview-server.cjs",
+    "check": "node --check dist/script.js && node tools/check-site.cjs"
   }
 }
